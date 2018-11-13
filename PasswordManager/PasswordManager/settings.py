@@ -26,7 +26,7 @@ SECRET_KEY = 'q@)@!tlw_zqhlqanh+wa7_&utrcb9l3h%xldb2dmeqjwyvzgek'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['password-manager.herokuapp.com',]
+ALLOWED_HOSTS = ['password-manager360.herokuapp.com',]
 
 
 # Application definition
