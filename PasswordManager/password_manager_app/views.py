@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic import View, ListView, CreateView, DeleteView, UpdateView, TemplateView
 from django.urls import reverse_lazy
-
 from django.contrib.auth import authenticate, login
 
 from .models import Entry
@@ -24,6 +21,18 @@ class EntryList(ListView):
             return context
 
 
+class EntryDetail(TemplateView):
+    template_name = 'details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        entry = Entry.objects.get(id=self.kwargs['pk'])
+        context['entry'] = entry
+        if not self.request.user.is_anonymous:
+            context['user_is_logged'] = True
+        return context
+
+
 class EntryCreate(CreateView):
     model = Entry
     template_name = 'create.html'
@@ -36,10 +45,15 @@ class EntryCreate(CreateView):
     success_url = reverse_lazy('password_manager:entries')
 
 
+
 class EntryEdit(UpdateView):
     model = Entry
-    template_name = 'details_and_edit.html'
+    template_name = 'edit.html'
     fields = ['site_name', 'site_url', 'login_name', 'login_password']
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
     success_url = reverse_lazy('password_manager:entries')
 
 
