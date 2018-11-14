@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %} Password Manager {% endblock %}</title>
+  {% load staticfiles %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body class="base_color">
+  <nav class="navbar navbar-inverse" >
+    <div class="container-fluid">
+        <!-- Logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"> </span>
+                <span class="icon-bar"> </span>
+                <span class="icon-bar"> </span>
+            </button>
+            <a href="{% url 'password_manager:entries' %}" class="navbar-brand">Password Manager</a>
+        </div>
+
+        <div class=" collapse navbar-collapse" id="#topNavBar">
+            <!-- Menu -->
+            <ul class="nav navbar-nav">
+                <li> <a href= "{% url 'password_manager:login' %}">  <span class="glyphicon glyphicon-user"> </span> Log In</a> </li>
+                <li> <a href= "{% url 'password_manager:register' %}">  <span class="glyphicon glyphicon-pencil"> </span> Register</a> </li>
+            </ul>
+            <!-- Add Buttons -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href= "{% url 'password_manager:logout' %}">
+                        <span class="glyphicon glyphicon-off"> </span>&nbsp; Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+  </nav>
+  {% block main_content %}
+  {% endblock %}
+</body>
+</html>
