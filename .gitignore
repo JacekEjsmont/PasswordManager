@@ -1,2 +1,4 @@
 *.db
 *.pyc
+
+password_manager_app/migrations/
