@@ -1,1 +1,1 @@
-web: gunicorn PasswordManager/PasswordManager.wsgi
+web: gunicorn PasswordManager.wsgi
