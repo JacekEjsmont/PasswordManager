@@ -1,3 +1,5 @@
-# .gitignore
-# Project files and directories
-PasswordManager/db.sqlite3
+*~
+*.*~
+*.db
+*.pyc
+*.zip
