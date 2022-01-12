@@ -9,7 +9,7 @@ gunicorn==19.9.0
 heroku==0.1.4
 idna==2.7
 Naked==0.1.31
-pipenv==2018.10.13
+pipenv==2022.1.8
 psycopg2==2.7.6.1
 pycparser==2.19
 python-dateutil==1.5
